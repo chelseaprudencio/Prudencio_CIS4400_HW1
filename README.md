@@ -1,8 +1,8 @@
 # CIS4400-HW1
-Spotify Web API 
 
 ## Business Requirements
 
+- create a web app where users are able to pull metrics based off their user data
 - View my top 10 songs
 - See which ad styles and targeting methods work across different demographics
 - Analyze seasonal trends and its ad engagement to see if it provides a road map for future marketing efforts
