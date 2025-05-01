@@ -57,7 +57,20 @@ The key fields I will be focusing on in my warehouse will be:
 
 ## Data Sourcing 
 Web API sourcing can be found in data folder under the data_dictionary.ipynb file along with a word document with further details of the data dictionary sourced from the [NYC Open Data: Restaurant Grades dataset](https://data.cityofnewyork.us/Health/Restaurant-Grades/gra9-xbjk/data_preview). 
+
 ## Information Architecture 
+# Overview 
+The information architecture starts with the restaurant inspection data being soured from the dataset. The data flow will be in the following order
+
+1. Collection: from the nyc open dataset
+2. Gathering: The dataset will be exported into a csv file
+3. Clean: remove fields that will not be useful in this analysis project (i.e. grade date, record date, building)
+4. Reformat: Will be done after fields are dropped and file is updated
+5. Transform: new fields would be created in this step (i.e. critically_flagged and violation_category)
+6. Load: The clean and reformatted/transformed data will then be stored into azure blob and structured into star schema warehouse. 
+7. Warehouse: users can access dashboards/reports
+
+![Information Architecture Flow diagram](diagrams/information_architecture_flowchart.png)
 
 ## Data Architecture 
 
