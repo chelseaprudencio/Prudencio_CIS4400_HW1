@@ -56,7 +56,7 @@ The key fields I will be focusing on in my warehouse will be:
 - Score 
 
 ## Data Sourcing 
-
+Web API sourcing can be found in data folder under the data_dictionary.ipynb file along with a word document with further details of the data dictionary sourced from the [NYC Open Data: Restaurant Grades dataset](https://data.cityofnewyork.us/Health/Restaurant-Grades/gra9-xbjk/data_preview). 
 ## Information Architecture 
 
 ## Data Architecture 
