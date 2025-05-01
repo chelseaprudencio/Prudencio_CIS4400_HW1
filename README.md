@@ -62,6 +62,8 @@ Web API sourcing can be found in data folder under the data_dictionary.ipynb fil
 # Overview 
 The information architecture starts with the restaurant inspection data being soured from the dataset. The data flow will be in the following order
 
+![Information Architecture Diagram](diagrams/information_architecture.png)
+
 1. Collection: from the nyc open dataset
 2. Gathering: The dataset will be exported into a csv file
 3. Clean: remove fields that will not be useful in this analysis project (i.e. grade date, record date, building)
@@ -70,8 +72,23 @@ The information architecture starts with the restaurant inspection data being so
 6. Load: The clean and reformatted/transformed data will then be stored into azure blob and structured into star schema warehouse. 
 7. Warehouse: users can access dashboards/reports
 
-![Information Architecture Flow diagram](diagrams/information_architecture_flowchart.png)
-
 ## Data Architecture 
+![Data Architecture Diagram](diagrams/Data Architecture.png)
+
+Data Source: the data will be coming from the NYC Open Data: Restaurant Grades dataset
+
+Data Storage: when the csv is exported, it will be then be stored in Microsoft Azure blob for storage as its staging location. This is where the raw data will be. 
+
+ETL (Extract, Transform, Load): Fields not used will be dropped in this step. Using Pyhon/ SQL the data will become standardized/ renamed fields. Transformed by creating new fields.  
+
+Cloud Storage/Warehouse: Azure blob + Star Schema 
+After data is cleaned and uploaded into Azure it will be structured into a star schema into the cloud warehouse. 
+
+Fact table: Inspections (score, grades, flags)
+Dimension Tables:(Location, Cuisine, Violation Type)
+
+Data Warehouse: 
+
+Dashboard/ Reports: tools like tableau or power bi to access the data for dashboards/report. This will allow for users to see patterns within different zip codes, cuisines, and violations
 
 ## Dimensional Modeling
