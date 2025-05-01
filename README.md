@@ -73,7 +73,7 @@ The information architecture starts with the restaurant inspection data being so
 7. Warehouse: users can access dashboards/reports
 
 ## Data Architecture 
-![Data Architecture Diagram](diagrams/Data Architecture.png)
+![Data Architecture Diagram](diagrams/data_architecture.png)
 
 Data Source: the data will be coming from the NYC Open Data: Restaurant Grades dataset
 
