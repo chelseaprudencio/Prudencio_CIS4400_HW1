@@ -87,8 +87,6 @@ After data is cleaned and uploaded into Azure it will be structured into a star 
 Fact table: Inspections (score, grades, flags)
 Dimension Tables:(Location, Cuisine, Violation Type)
 
-Data Warehouse: 
-
 Dashboard/ Reports: tools like tableau or power bi to access the data for dashboards/report. This will allow for users to see patterns within different zip codes, cuisines, and violations
 
 ## Dimensional Modeling
