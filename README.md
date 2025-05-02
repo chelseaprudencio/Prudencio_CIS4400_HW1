@@ -93,59 +93,43 @@ Dashboard/ Reports: tools like tableau or power bi to access the data for dashbo
 
 ![Dimensional Model Diagram](diagrams/dimension_model.png)
 
-# Fact Table
+### Fact Table
 
-inspection_id (PK) – Unique ID for the inspection
+- inspection_id (PK) – Unique ID for the inspection
+- location_id (FK) – restaurant's location
+- cuisine_id (FK) – cuisine type
+- violation_id (FK) – specific violation recorded
+- inspection_date_id (FK) – inspection and record date
+- score – Numerical health inspection score
+- grade – Letter grade assigned to the restaurant (A, B, C)
+- critically_flagged – Boolean flag for critical violations
 
-location_id (FK) – restaurant's location
+### Dimension Tables
 
-cuisine_id (FK) – cuisine type
+#### Location_dim (PK)
 
-violation_id (FK) – specific violation recorded
-
-inspection_date_id (FK) – inspection and record date
-
-score – Numerical health inspection score
-
-grade – Letter grade assigned to the restaurant (A, B, C)
-
-critically_flagged – Boolean flag for critical violations
-
-# Dimension Tables
-
-Location_dim (PK)
-
-boro - borough (Manhattan, Queens, Bronx, Staten Island,
+- boro - borough (Manhattan, Queens, Bronx, Staten Island,
  Brooklyn)
+- zipcode - zip code of restaurant 
+- street - street name of restaurant 
 
-zipcode - zip code of restaurant 
+#### Cuisine_dim 
 
-street - street name of restaurant 
+- cuisine_id (PK)
+- cuisine_type (American, Chinese, Bakery)
 
-Cuisine_dim 
+#### Violation_dim
 
-cuisine_id (PK)
+- violation_id (PK)
+- violation_code - code given by NYC DOH
 
-cuisine_type (American, Chinese, Bakery)
+- violation_desc - description of violation 
+- violation_category - classfied group (i.e. cleanliness, pest control, etc)
 
-Violation_dim
+#### Inspection_date_dim 
 
-violation_id (PK)
-
-violation_code - code given by NYC DOH
-
-violation_desc - description of violation 
-
-violation_category - classfied group (i.e. cleanliness, pest control, etc)
-
-Inspection_date_dim 
-
-date_id (PK)
-
-grade_date - when the grade was given 
-
-record_date - when the record was added 
-
-grade_year + grade_month - values from grade_date that were parsed 
-
-record_year + record_month - values from record_date that were parsed 
+- date_id (PK)
+- grade_date - when the grade was given 
+- record_date - when the record was added 
+- grade_year + grade_month - values from grade_date that were parsed 
+- record_year + record_month - values from record_date that were parsed 
