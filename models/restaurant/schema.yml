@@ -1,0 +1,115 @@
+version: 2
+
+models:
+  - name: location_dim
+    description: "Dimension table for restaurant locations"
+    columns:
+      - name: location_id
+        description: "Primary key for location dimension"
+        tests:
+          - unique
+          - not_null
+      - name: boro
+        description: "Borough of restaurant"
+      - name: zipcode
+        description: "Zip code of restaurant"
+      - name: street
+        description: "Street address of restaurant"
+
+  - name: cuisine_dim
+    description: "Dimension table for cuisine types"
+    columns:
+      - name: cuisine_id
+        description: "Primary key for cuisine dimension"
+        tests:
+          - unique
+          - not_null
+      - name: cuisine_type
+        description: "Type of cuisine"
+        tests:
+          - not_null
+
+  - name: violation_dim
+    description: "Dimension table for violation types"
+    columns:
+      - name: violation_id
+        description: "Primary key for violation dimension"
+        tests:
+          - unique
+          - not_null
+      - name: violation_desc
+        description: "Detailed violation description"
+        tests:
+          - not_null
+      - name: violation_category
+        description: "Category of violation for analysis"
+        tests:
+          - not_null
+
+  - name: calendar_dim
+    description: "Calendar dimension table"
+    columns:
+      - name: date_id
+        description: "Primary key for date dimension"
+        tests:
+          - unique
+          - not_null
+      - name: full_date
+        description: "Complete date"
+        tests:
+          - not_null
+      - name: day_of_week
+        description: "Day name (Monday, Tuesday, etc.)"
+      - name: day_of_month
+        description: "Day number in month"
+      - name: month_number
+        description: "Month number (1-12)"
+      - name: month_name
+        description: "Month name"
+      - name: year_number
+        description: "Year"
+      - name: quarter
+        description: "Quarter (Q1, Q2, Q3, Q4)"
+
+  - name: inspection_fact
+    description: "Fact table for restaurant inspections"
+    columns:
+      - name: inspection_id
+        description: "Primary key for inspection fact"
+        tests:
+          - unique
+          - not_null
+      - name: location_id
+        description: "Foreign key to location dimension"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('location_dim')
+              field: location_id
+      - name: cuisine_id
+        description: "Foreign key to cuisine dimension"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('cuisine_dim')
+              field: cuisine_id
+      - name: violation_id
+        description: "Foreign key to violation dimension"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('violation_dim')
+              field: violation_id
+      - name: date_id
+        description: "Foreign key to date dimension"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('calendar_dim')
+              field: date_id
+      - name: score
+        description: "Inspection score"
+      - name: grade
+        description: "Numeric representation of grade (1=A, 2=B, 3=C, etc.)"
+      - name: critically_flagged
+        description: "Boolean flag for critical violations"

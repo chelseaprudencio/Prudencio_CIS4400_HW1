@@ -1,0 +1,34 @@
+version: 2
+
+sources:
+  - name: nyc_restaurant
+    database: nyc_data
+    schema: public
+    tables:
+      - name: restaurant_grades
+        description: "NYC Restaurant Inspection Results"
+        columns:
+          - name: DBA
+            description: "Restaurant name (Doing Business As)"
+          - name: BORO
+            description: "Borough where the restaurant is located"
+          - name: BUILDING
+            description: "Building number"
+          - name: STREET
+            description: "Street name"
+          - name: ZIPCODE
+            description: "Zip code"
+          - name: "CUISINE DESCRIPTION"
+            description: "Type of cuisine"
+          - name: "VIOLATION DESCRIPTION"
+            description: "Description of the violation"
+          - name: "CRITICAL FLAG"
+            description: "Indicator of whether the violation is critical or not"
+          - name: SCORE
+            description: "Inspection score"
+          - name: GRADE
+            description: "Grade assigned (A, B, C, etc.)"
+          - name: "GRADE DATE"
+            description: "Date when grade was assigned"
+          - name: "RECORD DATE"
+            description: "Date when record was created"
